@@ -12,40 +12,6 @@
     margin: 0.5em;
 }
 
-.note {
-	min-width: 15em;
-    height: 6em;
-	margin: 1em;
-	cursor: pointer;
-    display: flex;
-	border: 1px solid;
-    align-items: center;
-	
-	h3 {
-		flex: 1;
-		margin: 1em;
-	}
-	
-	div {
-		padding: 1em;
-		cursor: pointer;
-	}
-}
-
-#ready-notes .note {
-	background: greenyellow;
-	div { display: none }
-}
-
-#process-notes .note {
-	background: yellow;
-	div { display: none }
-}
-
-#started-notes .note {
-	background: red;
-}
-
 #container {
 	height: 100%;
 	display: flex;

@@ -54,6 +54,34 @@ export class HomeComponent implements OnInit {
 			
 			var h3 : HTMLElement = document.createElement("h3");
 			h3.innerText = this.noteTitle.value;
+			
+			var del : HTMLElement = document.createElement("div");
+			del.innerText = "X";
+			
+			div.appendChild(h3);
+			div.appendChild(del);
+			
+			if( this.noteStatus != null ) {
+				
+				var cont : HTMLElement | null = null;
+				switch( this.noteStatus.selectedIndex ) {
+					case 0:
+						cont = document.getElementById("started-notes");
+						break;
+					
+					case 1:
+						cont = document.getElementById("process-notes");
+						break;
+					case 2:
+						cont = document.getElementById("ready-notes");
+						break;
+				}
+				
+				if( cont != null )
+					cont.appendChild(div);
+			}
+			
+			this.cancel();
 		}
 	}
 	
