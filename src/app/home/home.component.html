@@ -1,0 +1,85 @@
+<div id="container">
+	<div id="header">
+		<h1> Semaforo de tareas </h1>
+		
+		<div id="semaphore">
+			<div class="light-info">
+				<div class="light" style="background:red"></div>
+				<h3>Iniciada</h3>
+			</div>
+			
+			<div class="light-info">
+				<div class="light" style="background:yellow"></div>
+				<h3>En proceso</h3>
+			</div>
+			
+			<div class="light-info">
+				<div class="light" style="background:greenyellow"></div>
+				<h3>Terminada</h3>
+			</div>
+		</div>
+		
+	</div>
+
+	<div id="notelist">
+		<div id="ready-notes"> 
+			<div class="note">
+				<h3>Titulo</h3>
+				<div>X</div>
+			</div>
+			<div class="note">
+				<h3>Titulo</h3>
+				<div>X</div>
+			</div>
+		</div>
+		
+		<div id="process-notes"> 
+			<div class="note">
+				<h3>Titulo</h3>
+				<div>X</div>
+			</div>
+			<div class="note">
+				<h3>Titulo</h3>
+				<div>X</div>
+			</div>
+		</div>
+		
+		<div id="started-notes"> 
+			<div class="note">
+				<h3>Titulo</h3>
+				<div>X</div>
+			</div>
+			<div class="note">
+				<h3>Titulo</h3>
+				<div>X</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="button-add" (click)="showDialog()">+</div>
+
+<div id="overlay"> 
+	<div id="dialog">
+		<form>
+			<div id= "dialog-title">
+				<label>Titulo</label><br>
+				<input type="text"><br>
+			</div>
+			
+			<div id="dialog-status">
+				<label> Estado </label><br>
+				<select>
+					<option>Iniciada</option>
+					<option>En proceso</option>
+					<option>Terminada</option>
+				</select>
+			</div>
+		</form>
+		<div id="dialog-buttons">
+			<button id="btn-cancel" (click)="cancel()">Cancelar</button>
+			<button id="btn-create" (click)="createNote()">Crear</button>
+			<button id="btn-update" (click)="updateNote()">Actualizar</button>
+		<div>
+	</div>
+</div>
