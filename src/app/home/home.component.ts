@@ -52,13 +52,16 @@ export class HomeComponent implements OnInit {
 		if( !error ) {
 			var div : HTMLElement = document.createElement("div");
 			var index : number = this.notes.length;
-			div.addEventListener("click", ()=>{ this.selectNote(index)}, false);
+			
+			div.addEventListener("click", (e:MouseEvent)=>{ this.selectNote(index,e) }, false);
 			div.className = "note";
 			
 			var h3 : HTMLElement = document.createElement("h3");
 			h3.innerText = this.noteTitle.value;
 			
 			var del : HTMLElement = document.createElement("div");
+			del.id = "btn-del";
+			del.addEventListener("click", ()=>{ this.deleteNote(index) }, false);
 			del.innerText = "X";
 			
 			div.appendChild(h3);
@@ -98,7 +101,7 @@ export class HomeComponent implements OnInit {
 	
   }
   
-  selectNote(i:number) : void {
+  selectNote(i:number, e:MouseEvent) : void {
 	if( this.buttonCreate != null )
 		this.buttonCreate.style.display = "none";
 	
@@ -107,6 +110,12 @@ export class HomeComponent implements OnInit {
 	
 	if( this.buttonUpdate != null )
 		this.buttonUpdate.style.display = "inline-block";
+	
+	
+	var tg : HTMLElement | null = tg = e.target as HTMLElement;	
+	if( tg != null )
+		if( tg.id == "btn-del") 
+			return;
 	
 	var note : any | null = this.notes[i];
 	if( note != null ) {
@@ -125,6 +134,14 @@ export class HomeComponent implements OnInit {
 	}
 	
 	this.showDialog();
+  }
+  
+  deleteNote(i:number) {	 
+	 var note : any | null = this.notes[i];
+	 if( note != null ) {
+		 note.el.remove();
+		 delete this.notes[i];
+	 }
   }
   
   updateNote() : void {
